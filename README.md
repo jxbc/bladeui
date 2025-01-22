@@ -25,7 +25,16 @@ const select = ui.select({
 select.add('#test', [{text: 'test', value: 'test123'}])
 ```
 код выше позволят расширять список нативно с помощью массива и объекта данных. Это удобно и очень просто!  
-
+Мы так же можем следить за изменениями полей BladeSelect:
+```js
+ui.on('select', e => {
+    console.log(e)
+})
+```
+мы получаем примерно такие данные от BladeEvents, если происходят какие-то действия со списками:
+```js
+BladeEvents { value: 'test123', text: 'test', type: 'switch', object: { id: 'test', this: Element, attr: NodeMap } }
+```
 Примечание: при инициализации BladeSelect все списки перерисовываются в DOM, будьте внимательны.
 
 ## Списки с полем ввода (Select Enter) (*в разработке*)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+    <title>UI</title>
+    <link rel="shortcut icon" href="" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="main_app">
+        <div class="container">
+            <h2>Custom Select 2</h2>
+            <sel>
+                <default>Выберите значение</default>
+                <opt value="1">123</opt>
+                <opt value="2">456</opt>
+                <opt value="3">789</opt> 
+                <opt value="4">3923</opt> 
+            </sel>
+        </div>
+        <div class="container">
+            <h2>Custom Select 3</h2>
+            <sel id="game">
+                <default>Game</default>
+                <opt value="soul">Stalker 2</opt>
+                <opt value="gta">GTA 6</opt>
+            </sel>
+        </div>
+    </div>
+    <script type="text/javascript" src="./libjs/blade.js"></script>
+    <script>
+        document.querySelector("#game").insertAdjacentHTML('beforeend', `<opt value="akkk">test</opt>`)
+
+        const ui = new Blade()
+        let select = ui.select({
+            delay: 300,
+            alwaysDefault: 1
+        })
+
+        select.add('#game', [{text: 'test', value: 'test123'}])
+
+        ui.on('select', e => {
+            console.log(e)
+        })
+    </script>
+</body>
+</html>
